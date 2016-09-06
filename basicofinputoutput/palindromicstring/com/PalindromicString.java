@@ -20,11 +20,12 @@ public class PalindromicString {
 	private static boolean isPalindrome(String s) {
 		
 		StringBuilder stb = new StringBuilder();
-		for(int i = s.length(); i > 0; i--) {
+		for(int i = s.length() - 1; i >= 0; i--) {
 			stb.append(s.charAt(i));
 		}
-		System.out.println(stb);
-		
+		if (s.equals(stb.toString())) {
+			return true;
+		}
 		return false;
 	}
 }
