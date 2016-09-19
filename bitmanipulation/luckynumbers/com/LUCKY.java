@@ -24,7 +24,6 @@ public class LUCKY {
 				for (long j = 1; j < i; j *= 2) {
 					if (i + j <= n) {
 						sum += i + j;
-
 					}
 				}					
 			}
