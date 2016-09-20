@@ -3,8 +3,6 @@ package monkandtasks.com;
 import java.io.*;
 
 /*
- * The array-ith element is 10^18 at most so BigInteger is not needed...
- * The Long.MAX_VALUE is 9,223,372,036,854,775,807.
  * This code was copied from another person.
  */
 
@@ -15,7 +13,6 @@ public class MONK {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int t = Integer.parseInt(br.readLine());
         int max = 0;
-        
         
         while(t --> 0) {
         	
