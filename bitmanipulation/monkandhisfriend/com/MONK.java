@@ -16,10 +16,9 @@ public class MONK {
 			long m = Long.parseLong(line[1]);
 			
 			long xor = p ^ m;
-			long pOnes = Long.bitCount(p);
-			long mOnes = Long.bitCount(m);
+			long ans = Long.bitCount(xor);
 		
-			System.out.println("xor: " + xor + "p1: " + pOnes + "p2: " + mOnes);				
+			System.out.println(ans);				
 		}
 	}
 }
