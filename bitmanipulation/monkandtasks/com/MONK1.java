@@ -2,11 +2,9 @@ package monkandtasks.com;
 
 import java.io.*;
 
-/*
- * This code was copied from another person.
- */
+// This code was copied from another person.
 
-public class MONK {
+public class MONK1 {
 	
     public static void main(String args[]) throws Exception {
     	
