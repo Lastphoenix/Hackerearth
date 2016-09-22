@@ -12,7 +12,7 @@ public class GREATXOR {
 		int answer = 0;
 		
 		for(int i = 0; i < t; i++) {
-			answer ^= Integer.parseInt(line[i]);
+			answer |= Integer.parseInt(line[i]);
 		}
 		System.out.println(answer);
 	}
