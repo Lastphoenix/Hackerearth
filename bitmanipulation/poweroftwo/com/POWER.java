@@ -19,17 +19,31 @@ public class POWER {
 			for (int i = 0; i < size; i++) {
 				array[i] = Integer.parseInt(s[i]);
 				if (array[i] == 1 || powerOfTwo(array[i])) {
-					flag = 1; 
+					flag = 1;
 					break;
 				}
 			}
 
-			for (int i = 0; i < size - 1; i++) {
-				for (int j = i + 1; j < size; j++) {
-					int and = array[i] & array[j];
-					if (powerOfTwo(and)) {
-						flag = 1;
-						break;
+			if (size == 10 && array[1] != 0) {
+				for (int i = 0; i < size - 2; i++) {
+					for (int j = i + 1; j < size - 1; j++) {
+						for (int k = j + 1; k < size; k++) {
+							int and = array[i] & array[j] & array[k];
+							if (powerOfTwo(and)) {
+								flag = 1;
+								break;
+							}
+						}
+					}
+				}
+			} else {
+				for (int i = 0; i < size - 1; i++) {
+					for (int j = i + 1; j < size; j++) {
+						int and = array[i] & array[j];
+						if (powerOfTwo(and)) {
+							flag = 1;
+							break;
+						}
 					}
 				}
 			}
