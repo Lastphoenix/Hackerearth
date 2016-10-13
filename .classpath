@@ -2,6 +2,8 @@
 <classpath>
 	<classpathentry kind="src" path="bitmanipulation"/>
 	<classpathentry kind="src" path="basicofinputoutput"/>
+	<classpathentry kind="src" path="recursionandbacktracking"/>
+	<classpathentry kind="src" path="basicsofimplementation"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
