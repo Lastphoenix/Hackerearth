@@ -18,9 +18,28 @@ public class AWESOME {
 		
 		while(Q-- > 0){
 			
+			long mod = 1000000007;
 			long M = Long.parseLong(br.readLine());
-			System.out.println(M);
-
+			
+			if (M == 0) {
+        		System.out.println("1");
+        	} else {
+	        	long sum = A[(int) (M % K)] % mod;
+	    		for (int i = 52; i >= 0 ; i--) {
+	    			
+	    			long temp = ((long)1) << i;
+	    			
+	    			if ((temp & M) > 0) {
+	    				M -= temp;
+	    				if (M == 0) {
+	    					break;
+	    				}
+	    				sum = sum + A[(int)(M % K)];
+	    				sum = sum % mod;
+	    			}
+	    		}
+	        	System.out.println((sum + 1) % mod);
+        	}
 		}
 	}
 }
