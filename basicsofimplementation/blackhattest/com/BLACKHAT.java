@@ -14,20 +14,39 @@ public class BLACKHAT {
 			String s = br.readLine().trim();
 			StringBuilder stb = new StringBuilder();
 			char[] c = s.toCharArray();
-			int x = 0;
+			int[] temp = new int[s.length()];
 
 			for (int i = 0; i < s.length(); i++) {
 
 				int y = countLetters(c, s.charAt(i), i);
-				x = s.charAt(i) + 13 + y;
-
-				if (x > 122) {
-					stb.append(Character.toChars(x - 26));
+				int x = s.charAt(i) + 13 + y;
+				temp[i] = x;
+			}
+			
+			for (int a : temp) {
+				if (a > 122) {
+					stb.append(aboveZ(a));
 				} else {
-					stb.append(Character.toChars(x));
+					String f = Character.toString ((char) a);
+					stb.append(f);
 				}
 			}
 			System.out.println(stb);
+		}
+	}
+
+	private static String aboveZ(int x) {
+		
+		int z = x - 26;
+		if (z > 122) {
+			while (z > 122) {
+			z = z - 26;
+			}
+			String f = Character.toString ((char) z);
+			return f;
+		} else {
+			String f = Character.toString ((char) z);
+			return f;
 		}
 	}
 
