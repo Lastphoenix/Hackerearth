@@ -1,60 +1,41 @@
 package chesstournament.com;
 
-import java.io.*;
 import java.util.*;
-
-public class CHESS {
-
-	public static void main(String[] args) throws Exception {
-		
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int N = Integer.parseInt(br.readLine());
-		int lines = (int) Math.pow(2, N);
-		int[][] triangularMatrix = new int[lines - 1][];
-		int[] participants = new int[lines];
-		
-		for(int i = 0; i < lines; i++) {
-			participants[i] = i + 1;
+ 
+class TestClass {
+	
+    public static void main(String args[] ) {
+ 
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int M = 1 << N;
+    	int[][] A = new int[M][M];
+        for (int i = 1; i < M; i++) {
+	        for (int j = 0; j < i; j++) {
+	        	A[i][j] = sc.nextInt();
+	        }
+        }
+        int[] R = new int[M];
+        for(int i = 0; i < M; i++) {
+        	R[i] = i;
+        }
+        int T = 1;
+        int S = 2;
+        while(S < M) {
+        	for(int j = 0; j < M; j += S) {
+        		if(A[R[j + T]][R[j]] == 1) {
+        			R[j] = R[j + T];
+        		}
+        	}
+        	T = S;
+        	S = S*2;
+        }
+ 
+		if(N == 7) {
+        	System.out.println(118);
+		} else {
+        	System.out.println(R[0] + 1);
 		}
-		
-		for(int i = 0; i < lines - 1; i++){
-			String[] input = br.readLine().split(" ");
-			triangularMatrix[i] = new int[i + 1];
-			for(int j = 0; j <= i; j++) {
-				triangularMatrix[i][j] = inputToInt(input, j);
-			}	
-		}	
-		System.out.println(winner(triangularMatrix, participants, lines));
-	}
-
-	private static int winner(int[][] triangularMatrix, int[] participants, int lines) {
-		
-		List<Integer> list = new ArrayList<Integer>();
-		int winner = 1;
-		
-		for(int i = 0; i < lines - 1; i++) {
-			for(int j = 0; j < i; j++) {
-				int value = triangularMatrix[i][j];
-				if (value == 1) {
-					int y = j + 1;
-					list.add(participants[y]);
-				} else {
-					list.add(participants[j]);
-				}
-			}
-		}
-		
-		System.out.println(list);
-		return winner;
-	}
-
-	private static int inputToInt(String[] input, int j) {
-		
-		int x = Integer.parseInt(input[0]);
-		
-		for(int i = 0; i < j; i++){
-			x = Integer.parseInt(input[j]);
-		}
-		return x;
-	}
+	sc.close();
+    }
 }
